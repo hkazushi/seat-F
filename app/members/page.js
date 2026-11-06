@@ -37,7 +37,7 @@ export default function Members() {
         </ul>
       </section>
 
-      <section className="sec sec-yellow two-col">
+      <section className="sec sec-accent two-col">
         <div>
           <SectionHead en="BEFORE" title="みんな、最初は未経験でした。" />
           <p>過去に採用した方の前職は、{MOVES_FROM.join('、')}など。在籍している社員は全員が中途入社です。</p>

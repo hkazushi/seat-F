@@ -111,7 +111,7 @@ export function EntryBand() {
           応募から内定まで、最短1週間以内も可能です。
         </p>
         <div className="band-go">
-          <Go href="/entry/" tone="yellow">
+          <Go href="/entry/" tone="accent">
             エントリーする
           </Go>
           <Go href="/entry/?type=casual" tone="white">

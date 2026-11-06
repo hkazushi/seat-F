@@ -92,7 +92,7 @@ export default function Recruit() {
           カジュアル面談も相談できます。結果は合否に関わらずご連絡します。応募の秘密は厳守します。応募書類は返却できません。
         </p>
         <div className="band-go mt-go">
-          <Go href="/entry/" tone="yellow">
+          <Go href="/entry/" tone="accent">
             エントリーする
           </Go>
           <Go href="/entry/?type=casual" tone="white">

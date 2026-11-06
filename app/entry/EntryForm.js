@@ -109,7 +109,7 @@ export default function EntryForm() {
         </span>
       </label>
 
-      <button type="submit" className="go go-yellow form-submit" disabled={REVIEW}>
+      <button type="submit" className="go go-accent form-submit" disabled={REVIEW}>
         <span>{REVIEW ? '送信する（確認用のため無効）' : '送信する'}</span>
         <b aria-hidden="true">→</b>
       </button>

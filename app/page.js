@@ -125,7 +125,7 @@ export default function Home() {
             </article>
           ))}
           <div className="stage-end">
-            <Go href="/work/" tone="yellow">
+            <Go href="/work/" tone="accent">
               仕事と研修を見る
             </Go>
           </div>
@@ -174,7 +174,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <Go href="/members/" tone="yellow">
+        <Go href="/members/" tone="accent">
           社員紹介を見る
         </Go>
       </section>

@@ -88,7 +88,7 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="sec sec-yellow">
+      <section className="sec sec-accent">
         <SectionHead en="WANTED" title="きっかけは、それで十分。" lead="「デザインを仕事にしてみたい」「動画編集に興味がある」。今のスキルより、これからの成長意欲を見ています。" />
         <ul className="big-list big-list-sm">
           {FITS.map((f) => (

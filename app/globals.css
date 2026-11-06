@@ -2,8 +2,7 @@
   --ink: #101011;
   --paper: #fff;
   --gray: #f2f2ee;
-  --yellow: #ffe100;
-  --blue: #2a93d5;
+  --accent: #00a4b2;
   --line: #101011;
   --mute: #5a5a57;
   --gutter: clamp(16px, 4.5vw, 72px);
@@ -77,7 +76,7 @@ h3 {
 }
 
 :focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -178,7 +177,7 @@ h3 {
 }
 
 .hd-drop a:hover {
-  background: var(--yellow);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -205,14 +204,15 @@ h3 {
 
 .hd-entry {
   padding: 0 26px;
-  background: var(--yellow);
+  background: var(--accent);
+  color: var(--paper);
   font-family: var(--font-en);
   font-size: 20px;
   letter-spacing: 0.06em;
 }
 
 .hd-entry:hover {
-  background: #f5d700;
+  background: #008c98;
 }
 
 .hd-toggle {
@@ -286,7 +286,7 @@ h3 {
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.14em;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .menu-sub {
@@ -299,7 +299,7 @@ h3 {
 }
 
 .menu-entry {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 /* ===== Button ===== */
@@ -339,16 +339,16 @@ h3 {
 }
 
 .go:hover {
-  background: var(--yellow);
+  background: var(--accent);
   color: var(--ink);
 }
 
-.go-yellow {
-  background: var(--yellow);
+.go-accent {
+  background: var(--accent);
   color: var(--ink);
 }
 
-.go-yellow:hover,
+.go-accent:hover,
 .go-white:hover {
   background: var(--paper);
   color: var(--ink);
@@ -401,8 +401,8 @@ h3 {
   color: var(--paper);
 }
 
-.sec-yellow {
-  background: var(--yellow);
+.sec-accent {
+  background: var(--accent);
 }
 
 .sh {
@@ -428,7 +428,7 @@ h3 {
 }
 
 .sh-invert .sh-en {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .sub-title {
@@ -534,7 +534,7 @@ h3 {
 
 .hero-mask-end {
   text-align: right;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .hero-meta {
@@ -601,7 +601,7 @@ h3 {
 
 mark {
   padding: 2px 6px;
-  background: var(--yellow);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -613,7 +613,7 @@ mark {
 .num {
   display: grid;
   grid-template-columns: 7fr 5fr;
-  background: var(--yellow);
+  background: var(--accent);
 }
 
 .num-big {
@@ -673,7 +673,7 @@ mark {
   font-family: var(--font-en);
   font-size: clamp(50px, 6vw, 92px);
   line-height: 1.05;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .num-list small {
@@ -697,7 +697,7 @@ mark {
 }
 
 .num-more a:hover {
-  background: var(--yellow);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -771,7 +771,7 @@ mark {
 .stages-head p {
   font-family: var(--font-en);
   letter-spacing: 0.12em;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .stages-head h2 {
@@ -792,7 +792,7 @@ mark {
   font-family: var(--font-en);
   font-size: clamp(110px, 13vw, 210px);
   line-height: 1;
-  color: var(--yellow);
+  color: var(--accent);
   margin-bottom: auto;
 }
 
@@ -813,7 +813,7 @@ mark {
 }
 
 .stage ul {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .stage-end {
@@ -866,7 +866,7 @@ mark {
 
 @media (hover: hover) {
   .pj-list li:hover {
-    background: var(--yellow);
+    background: var(--accent);
   }
 
   .pj-list li:hover img {
@@ -904,7 +904,7 @@ mark {
 }
 
 .ppl-item:hover {
-  background: var(--yellow);
+  background: var(--accent);
   color: var(--ink);
 }
 
@@ -952,7 +952,7 @@ mark {
 }
 
 .job-link:hover {
-  background: var(--yellow);
+  background: var(--accent);
   padding-left: 20px;
 }
 
@@ -1005,7 +1005,7 @@ mark {
 }
 
 .band h2 span {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .band h2 + p {
@@ -1098,7 +1098,7 @@ mark {
   font-size: clamp(60px, 9.6vw, 170px);
   line-height: 1;
   letter-spacing: 0.005em;
-  color: var(--yellow);
+  color: var(--accent);
   white-space: nowrap;
 }
 
@@ -1145,7 +1145,7 @@ mark {
 }
 
 .next:hover {
-  background: var(--yellow);
+  background: var(--accent);
 }
 
 .next small {
@@ -1223,7 +1223,7 @@ mark {
   gap: 32px clamp(32px, 6vw, 96px);
   align-items: end;
   padding: clamp(64px, 8vw, 120px) var(--gutter);
-  background: var(--yellow);
+  background: var(--accent);
 }
 
 .goals .sh {
@@ -1388,7 +1388,7 @@ mark {
 
 .stat-lead {
   grid-column: span 4;
-  background: var(--yellow);
+  background: var(--accent);
   border-right: 0;
   border-top: 0;
   padding-inline: var(--gutter);
@@ -1456,7 +1456,7 @@ mark {
 }
 
 .compare-row .compare-ours {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 /* 仕事と研修 */
@@ -1484,7 +1484,7 @@ mark {
 }
 
 .step-invert .stage-no {
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .step h3 {
@@ -1534,7 +1534,7 @@ mark {
   font-weight: 400;
   font-size: clamp(30px, 3.4vw, 54px);
   line-height: 1.2;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 /* 制度 */
@@ -1568,7 +1568,7 @@ mark {
   font-family: var(--font-en);
   font-size: clamp(130px, 24vw, 420px);
   line-height: 1;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .pp-role {
@@ -1626,7 +1626,7 @@ mark {
 }
 
 .pp-next a:hover {
-  background: var(--yellow);
+  background: var(--accent);
 }
 
 .pp-next small {
@@ -1691,7 +1691,7 @@ mark {
   font-family: var(--font-en);
   font-size: clamp(70px, 9vw, 140px);
   line-height: 1;
-  color: var(--yellow);
+  color: var(--accent);
 }
 
 .flow h3 {
@@ -1786,7 +1786,7 @@ mark {
   margin-bottom: 24px;
   padding: 12px 16px;
   background: var(--ink);
-  color: var(--yellow);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -1872,7 +1872,7 @@ mark {
 }
 
 .radios input:focus-visible + span {
-  outline: 3px solid var(--blue);
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
