@@ -100,6 +100,7 @@ export default function Home() {
       <Zebra />
 
       <section className="stages" data-stages>
+        <div className="stages-sticky">
         <div className="stages-track" data-stages-track>
           <header className="stages-head">
             <p>TRAINING</p>
@@ -128,6 +129,7 @@ export default function Home() {
               仕事と研修を見る
             </Go>
           </div>
+        </div>
         </div>
       </section>
 

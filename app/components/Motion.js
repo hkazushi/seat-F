@@ -17,20 +17,22 @@ export default function Motion() {
     const mm = gsap.matchMedia();
 
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      // ヒーロー: 文字を下からせり上げ、映像は縞のように開く
-      gsap.from('[data-hero-line]', { yPercent: 110, duration: 1, ease: 'power4.out', stagger: 0.14, delay: 0.1 });
-      gsap.from('[data-hero-video]', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'power4.inOut' });
+      // ヒーロー: 文字を下からせり上げ、映像は縞のように開く（トップのみ）
+      if (document.querySelector('.hero')) {
+        gsap.from('[data-hero-line]', { yPercent: 110, duration: 1, ease: 'power4.out', stagger: 0.14, delay: 0.1 });
+        gsap.from('[data-hero-video]', { clipPath: 'inset(0 0 100% 0)', duration: 1.1, ease: 'power4.inOut' });
 
-      gsap.to('[data-drift="left"]', {
-        xPercent: -14,
-        ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-      });
-      gsap.to('[data-drift="right"]', {
-        xPercent: 12,
-        ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-      });
+        gsap.to('[data-drift="left"]', {
+          xPercent: -14,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+        });
+        gsap.to('[data-drift="right"]', {
+          xPercent: 12,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+        });
+      }
 
       // 写真: 横一閃で開く
       gsap.utils.toArray('[data-wipe]').forEach((el) => {
@@ -53,22 +55,32 @@ export default function Motion() {
     });
 
     // STEP の横スクロールはデスクトップのみ。モバイルは縦積みのまま
+    // pin: true は使わない。pin-spacer が DOM を包むと、ページ遷移時に React の removeChild が失敗する
     mm.add('(min-width: 960px) and (prefers-reduced-motion: no-preference)', () => {
       const wrap = document.querySelector('[data-stages]');
       const track = document.querySelector('[data-stages-track]');
       if (!wrap || !track) return;
+      const distance = () => track.scrollWidth - window.innerWidth;
+      const setHeight = () => {
+        wrap.style.height = `${distance() + window.innerHeight}px`;
+      };
+      setHeight();
+      ScrollTrigger.addEventListener('refreshInit', setHeight);
       gsap.to(track, {
-        x: () => -(track.scrollWidth - window.innerWidth),
+        x: () => -distance(),
         ease: 'none',
         scrollTrigger: {
           trigger: wrap,
           start: 'top top',
-          end: () => `+=${track.scrollWidth - window.innerWidth}`,
-          pin: true,
+          end: 'bottom bottom',
           scrub: 0.6,
           invalidateOnRefresh: true,
         },
       });
+      return () => {
+        ScrollTrigger.removeEventListener('refreshInit', setHeight);
+        wrap.style.height = '';
+      };
     });
 
     const refresh = () => ScrollTrigger.refresh();

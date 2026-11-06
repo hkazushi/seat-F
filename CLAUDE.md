@@ -44,7 +44,7 @@ TypeScript も lint も無いので、検証はビルドと実表示。**`out/` 
 
 ## デプロイ
 
-**確認用（Vercel・未実施）**: GitHub を Vercel と連携する予定。Vercel の環境変数に `NEXT_PUBLIC_REVIEW=1` を設定すると、フォーム送信を止めて noindex になる（Vercel では PHP が動かないため）。`public/entry.php` は Vercel 上ではただのファイルとして配信されるので注意。
+**確認用（Vercel）**: https://seat-f.vercel.app 。`hkazushi/seat-F` の `main` にプッシュすると自動でデプロイされる。Vercel 上のビルドは `next.config.mjs` が自動で `NEXT_PUBLIC_REVIEW=1` にするので、フォーム送信が止まり noindex になる（PHP が動かないため）。`entry.php` は `.vercelignore` で除外している。
 
 **本番（レンタルサーバー想定・未実施）**: 環境変数なしの `npm run build` で生成される `out/` の中身を、公開ディレクトリにアップロードする。
 
@@ -66,8 +66,10 @@ TypeScript も lint も無いので、検証はビルドと実表示。**`out/` 
 
 ## 過去に実際に踏んだ罠（再発防止）
 
+- **トップからのリンクが全部「This page couldn't load」になる（2026-11-06）**: GSAP の `pin: true` が作る `pin-spacer` が DOM を包み、遷移時に React の `removeChild` が `NotFoundError` で落ちる。直接 URL なら開けるので気づきにくい。**`pin` は使わず CSS `sticky` で作る**。検証は必ずトップから各ページへ**クリックで**遷移して行う
 - **ページ全体が横にはみ出す（2026-11-06）**: `.field input { width: 100% }` が、絶対配置で隠したラジオにも効いて幅が 562px に広がった。隠す input は `.field .radios input` の詳細度で `width: 1px` を指定する
 - **ヒーローや写真が空白のまま残る（2026-11-06）**: フレームが極端に少ないと、GSAP 既定の `lagSmoothing` が経過時間を切り詰めて開始アニメが終わらない（Browser pane 非表示時に 12 秒以上真っ黒）。`gsap.ticker.lagSmoothing(0)` で実時間どおりに終わらせる。これを外さない
+- **Next.js の脆弱性（2026-11-06）**: 16.2.1 と 16.2.12 は `npm audit` で critical。16.4.5 で 0 件。Vercel に上げる前に `npm audit --omit=dev` を確認する
 - **求人原文を curl で取れない（2026-11-06）**: 女の転職type は curl だと 403。要約ツールも本文を落とす。ブラウザで開いて `document.body.innerText` を読む
 
 ---

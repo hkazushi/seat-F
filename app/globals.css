@@ -734,14 +734,29 @@ mark {
 .stages {
   background: var(--ink);
   color: var(--paper);
-  overflow: hidden;
+}
+
+@media (min-width: 960px) {
+  .stages-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 960px) and (prefers-reduced-motion: reduce) {
+  .stages-sticky {
+    position: static;
+    overflow-x: auto;
+  }
 }
 
 .stages-track {
   display: flex;
   align-items: stretch;
   width: max-content;
-  height: 100svh;
+  height: 100vh;
   min-height: 600px;
 }
 
